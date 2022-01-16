@@ -22,6 +22,15 @@ export default defineConfig({
     VitePWA(),
     Pages({
       extensions: ['vue'],
+      extendRoute(route) {
+        if (route.path === '/')
+          return route
+
+        return {
+          ...route,
+          meta: { auth: true },
+        }
+      },
     }),
     Layouts({ layoutsDir: 'src/components/templates' }),
     WindiCSS(),

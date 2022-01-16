@@ -137,3 +137,8 @@ cc-reporter
 
 # CI Pnpm cache
 .pnpm-store/
+
+# firebase
+firebase-debug.log
+.firebaserc
+.firebase
