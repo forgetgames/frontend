@@ -1,0 +1,37 @@
+{
+  "name": "forget-games",
+  "version": "0.0.1",
+  "scripts": {
+    "serve": "vite --port 8080 --open",
+    "build": "vite-ssg --noEmit && vite build",
+    "lint": "eslint \"**/*.{vue,ts,js}\"",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@iconify-json/carbon": "^1.0.13",
+    "@vueuse/core": "^7.5.3",
+    "@vueuse/head": "^0.7.4",
+    "vue": "^3.2.25",
+    "vue-demi": "^0.12.1",
+    "vue-router": "^4.0.12"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.16.0",
+    "@vitejs/plugin-vue": "^2.0.0",
+    "eslint": "^8.6.0",
+    "postcss": "^8.4.5",
+    "postcss-windicss": "^1.0.0",
+    "typescript": "^4.5.4",
+    "unplugin-auto-import": "^0.5.11",
+    "unplugin-icons": "^0.13.0",
+    "unplugin-vue-components": "^0.17.11",
+    "vite": "^2.7.2",
+    "vite-plugin-pages": "^0.20.0",
+    "vite-plugin-pwa": "^0.11.13",
+    "vite-plugin-vue-layouts": "^0.5.0",
+    "vite-plugin-windicss": "^1.6.2",
+    "vite-ssg": "^0.17.6",
+    "vue-tsc": "0.30.2"
+  }
+}

@@ -1,0 +1,56 @@
+@windicss;
+
+body {
+  font-family: "Roboto Mono";
+  min-height: 100vh;
+  @apply text-xl bg-dark-700 text-white;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+footer: {
+}
+
+h1 {
+  @apply text-6xl;
+}
+
+h2 {
+  @apply text-4xl;
+}
+
+h3 {
+  @apply text-2xl;
+}
+
+.button,
+button {
+  @apply py-2 px-8 rounded-lg font-font-semibold border-none uppercase bg-black text-white hover:bg-gray-700;
+}
+
+.server-list {
+  @apply grid gap-8;
+}
+
+.card {
+  --tw-from-opacity: 0.7;
+  @apply p-4 from-lime-600 to-lime-800 bg-gradient-to-br shadow-inner text-black;
+
+  .card-header {
+    @apply grid grid-cols-2 gap-4 font-semibold;
+
+    span {
+      @apply my-auto;
+    }
+  }
+
+  .card-actions {
+    @apply mt-8 grid grid-cols-4 gap-4;
+  }
+}
+
+.cta {
+  @apply p-4 mb-12 border-black border-1;
+}
