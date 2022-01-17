@@ -1,5 +1,5 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { login, processCode } from '../../services/fgapi/index'
+import { login, processCode, refresh } from '../../services/fgapi/index'
 import type { Auth, DiscordAuthSuccess } from '../../types'
 
 export const useUserStore = defineStore('user', {
@@ -39,6 +39,9 @@ export const useUserStore = defineStore('user', {
       this.refreshToken = response.refresh_token
       this.scope = response.scope
       this.tokenType = response.token_type
+    },
+    async refresh() {
+      refresh(this.refreshToken)
     },
   },
 })

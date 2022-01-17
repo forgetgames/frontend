@@ -11,8 +11,9 @@ router.beforeEach((to, from, next) => {
     if (!userStore.accessToken) {
       next({
         path: '/',
-        query: { redirect: to.fullPath },
       })
+      userStore.setRedirect(to.fullPath)
+      userStore.login()
     }
     else {
       next()
@@ -24,8 +25,11 @@ router.beforeEach((to, from, next) => {
 })
 
 onMounted(() => {
-  if (typeof route.query.code === 'string')
-    userStore.setSessionByCode(route.query.code)
+  if (typeof route.query.code === 'string') {
+    userStore.setSessionByCode(route.query.code).then(() => {
+      router.push(userStore.redirect)
+    })
+  }
 
   if (route.meta.auth) {
     if (!userStore.accessToken) {
@@ -33,6 +37,9 @@ onMounted(() => {
       if (typeof route.query.redirect === 'string')
         userStore.setRedirect(route.query.redirect)
       userStore.login()
+    }
+    else if (!userStore.refreshToken) {
+      userStore.refresh()
     }
   }
 })
