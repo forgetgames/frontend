@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { login, processCode, refresh } from '../../services/fgapi/index'
-import type { Auth, DiscordAuthSuccess } from '../../types'
+import { login, processCode, refresh } from '~/services/fgapi/index'
+import type { Auth, DiscordAuthSuccess } from '~/types'
 
 export const useUserStore = defineStore('user', {
   state: () => ({

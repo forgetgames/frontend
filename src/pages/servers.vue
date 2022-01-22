@@ -1,19 +1,13 @@
 <script setup lang="ts">
-import { servers } from '../services/fgapi/index'
-import { useUserStore } from '../stores/user'
+import useServers from '~/composables/useServers/useServers'
+const { serverList, serversLoading, loadServers } = useServers()
 useHead({
   title: 'Forget Games - Server',
   meta: [
     { name: 'description', content: 'Our server dashboard' },
   ],
 })
-
-// TODO: replace with REST Api
-const serverList = ref([])
-servers(useUserStore().accessToken)
-  .then(async(response) => {
-    serverList.value = await response.json()
-  })
+loadServers()
 
 </script>
 <template>
@@ -23,6 +17,9 @@ servers(useUserStore().accessToken)
     Servers
   </h2>
   <div class="server-list">
+    <div v-if="serversLoading">
+      Loading...
+    </div>
     <template
       v-for="server in serverList"
       :key="server.name"

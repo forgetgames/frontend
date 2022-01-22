@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useUserStore } from './stores/user/index'
+import { useUserStore } from '~/stores/user/index'
 const router = useRouter()
 const route = useRoute()
 const userStore = useUserStore()
