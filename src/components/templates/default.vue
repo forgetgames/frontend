@@ -8,7 +8,7 @@
       <p class="col-start-1">
         © Copyright {{ new Date().getFullYear() }} by nobody. All rights reversed.
       </p>
-      <a href="" target="_blank" class="text-right">
+      <a href="https://github.com/forgetgames" target="_blank" class="text-right">
         <carbon-logo-github />
       </a>
     </footer>

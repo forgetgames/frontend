@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { servers } from '../services/fgapi/index'
+import { useUserStore } from '../stores/user'
 useHead({
   title: 'Forget Games - Server',
   meta: [
@@ -7,12 +9,11 @@ useHead({
 })
 
 // TODO: replace with REST Api
-const servers = [
-  { name: '7 Days 2 Die', description: 'The usual sessional play through with the crew.', playerCount: 0, maxPlayers: 10, status: 'offline' },
-  { name: 'Minecraft', description: 'Some mod pack', playerCount: 0, maxPlayers: 10, status: 'offline' },
-  { name: 'Valhiem', description: 'Third rendition of a P.O.T 24/7 server.', playerCount: 1, maxPlayers: 64, status: 'online' },
-  { name: 'Satisfactory', description: 'First play through to end game.', playerCount: 5, maxPlayers: 10, status: 'restarting' },
-]
+const serverList = ref([])
+servers(useUserStore().accessToken)
+  .then(async(response) => {
+    serverList.value = await response.json()
+  })
 
 </script>
 <template>
@@ -23,7 +24,7 @@ const servers = [
   </h2>
   <div class="server-list">
     <template
-      v-for="server in servers"
+      v-for="server in serverList"
       :key="server.name"
     >
       <card :server="server" />
