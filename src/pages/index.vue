@@ -8,8 +8,6 @@ useHead({
 
 </script>
 <template>
-  <h1>Forget Games</h1>
-  <hr class="-mt-2 mb-4 border-black">
   <h2>Homepage</h2>
   <p class="my-12">
     This platform is a primary controller of gaming servers for select Discord Communities.

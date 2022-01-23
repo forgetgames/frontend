@@ -12,4 +12,16 @@ export declare class DiscordAuthSuccess {
   refresh_token: string
   scope: string
   token_type: string
+
+  accent_color: string
+  avatar: string
+  banner: string
+  banner_color: string
+  discriminator: string
+  flags: number
+  id: string
+  locale: string
+  mfa_enabled: boolean
+  public_flags: number
+  username: string
 }
