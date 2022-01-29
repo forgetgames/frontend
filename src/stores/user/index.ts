@@ -5,6 +5,7 @@ import type { Auth, DiscordAuthSuccess } from '~/types'
 
 export const useUserStore = defineStore('user', {
   state: () => ({
+    state: useLocalStorage('state', ''),
     // Token
     accessToken: useLocalStorage('accessToken', ''),
     refreshToken: useLocalStorage('refreshToken', ''),
@@ -42,26 +43,35 @@ export const useUserStore = defineStore('user', {
     setRedirect(url: string) {
       this.redirect = url
     },
+    setState(state: string) {
+      this.state = state
+    },
     async setSessionByCode(code: string) {
-      const discord: Response = await processCode(code)
-      const response = (await discord.json()) as DiscordAuthSuccess
-      this.accessToken = response.access_token
-      this.expiresIn = response.expires_in
-      this.refreshToken = response.refresh_token
-      this.scope = response.scope
-      this.tokenType = response.token_type
+      return processCode(code)
+        .then(async(discord) => {
+          if (discord.status === 401) {
+            this.state = 'error'
+            return Promise.reject(discord.statusText)
+          }
+          const response = (await discord.json()) as DiscordAuthSuccess
+          this.accessToken = response.access_token
+          this.expiresIn = response.expires_in
+          this.refreshToken = response.refresh_token
+          this.scope = response.scope
+          this.tokenType = response.token_type
 
-      this.accentColor = response.accent_color
-      this.avatar = response.avatar
-      this.banner = response.banner
-      this.bannerColor = response.banner_color
-      this.discriminator = response.discriminator
-      this.flags = response.flags
-      this.id = response.id
-      this.locale = response.locale
-      this.mfaEnabled = response.mfa_enabled
-      this.publicFlags = response.public_flags
-      this.username = response.username
+          this.accentColor = response.accent_color
+          this.avatar = response.avatar
+          this.banner = response.banner
+          this.bannerColor = response.banner_color
+          this.discriminator = response.discriminator
+          this.flags = response.flags
+          this.id = response.id
+          this.locale = response.locale
+          this.mfaEnabled = response.mfa_enabled
+          this.publicFlags = response.public_flags
+          this.username = response.username
+        })
     },
     async refresh() {
       refresh(this.refreshToken)

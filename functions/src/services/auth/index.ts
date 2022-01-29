@@ -3,6 +3,7 @@ import {Response} from "express";
 import crypto = require("crypto");
 
 import {modifyResponse, OAuth} from "../../auth/authentication";
+import {isAuthorized} from "./../../auth/authorization";
 import {DISCORD_SCOPES} from "../../constants";
 
 
@@ -34,7 +35,6 @@ export const processCode = https
         response.send();
         return;
       }
-      console.log(typeof request.body);
       if (!request.body.code) {
         response = modifyResponse(request, response, 400);
         response.json({"message": "invalid authorization request body"});
@@ -50,10 +50,19 @@ export const processCode = https
         grantType: "authorization_code",
         redirectUri: config().discord.redirect.uri,
       });
+
+      const guildsResult: OAuth.PartialGuild[] =
+        await oauth.getUserGuilds(authResult.access_token);
+      if (!isAuthorized(guildsResult)) {
+        response = modifyResponse(request, response, 401);
+        response.json({"message": "not authorized to login"});
+        return;
+      }
+
       const userResult: OAuth.User =
         await oauth.getUser(authResult.access_token);
       response = modifyResponse(request, response, 200);
-      response.json({...authResult, ...userResult});
+      response.json({...authResult, ...userResult, ...guildsResult});
       return;
     });
 
