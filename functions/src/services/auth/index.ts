@@ -6,7 +6,7 @@ import {modifyResponse, OAuth} from "../../auth/authentication";
 import {isAuthorized} from "./../../auth/authorization";
 import {DISCORD_SCOPES} from "../../constants";
 
-
+// Get oauth2 access code
 export const getAuthUrl = https
     .onRequest(async (request: https.Request, response: Response) => {
       if (request.method === "OPTIONS") {
@@ -28,6 +28,7 @@ export const getAuthUrl = https
       return;
     });
 
+// Get oauth2 access token and user information
 export const processCode = https
     .onRequest(async (request: https.Request, response: Response) => {
       if (request.method === "OPTIONS") {
@@ -62,10 +63,11 @@ export const processCode = https
       const userResult: OAuth.User =
         await oauth.getUser(authResult.access_token);
       response = modifyResponse(request, response, 200);
-      response.json({...authResult, ...userResult, ...guildsResult});
+      response.json({...authResult, ...userResult});
       return;
     });
 
+// Get new access token from existing refresh token
 export const refreshToken = https
     .onRequest(async (request: https.Request, response: Response) => {
       if (request.method === "OPTIONS") {
@@ -88,6 +90,7 @@ export const refreshToken = https
       return;
     });
 
+// Revoke current access token
 export const revokeToken = https
     .onRequest(async (request: https.Request, response: Response) => {
       if (request.method === "OPTIONS") {

@@ -3,6 +3,8 @@ import {Response} from "express";
 import {modifyResponse, isAuthenticated} from "../../auth/authentication";
 import axios from "axios";
 import {Agent} from "https";
+
+// Get a server list
 export const getServers = https
     .onRequest(async (request: https.Request, response: Response) => {
       if (request.method === "OPTIONS") {
@@ -31,6 +33,7 @@ export const getServers = https
       return;
     });
 
+// Get a single server
 export const getServer = https
     .onRequest(async (request: https.Request, response: Response) => {
       if (request.method === "OPTIONS") {
