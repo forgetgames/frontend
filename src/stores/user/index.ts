@@ -27,6 +27,7 @@ export const useUserStore = defineStore('user', {
     publicFlags: useLocalStorage('publicFlags', 0),
     username: useLocalStorage('username', ''),
     // Guild Info
+    // TODO: Need for authorized guild info?
   }),
   actions: {
     async login() {
@@ -38,6 +39,7 @@ export const useUserStore = defineStore('user', {
       const router = useRouter()
       await logout()
       localStorage.clear()
+      this.$reset()
       router.push('/')
     },
     setRedirect(url: string) {
