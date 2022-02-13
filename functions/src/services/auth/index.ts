@@ -2,7 +2,7 @@ import {https, config} from "firebase-functions";
 import {Response} from "express";
 import crypto = require("crypto");
 
-import {modifyResponse, OAuth} from "../../auth/authentication";
+import {modifyResponse, OAuth, TokenRequestResult} from "../../auth/authentication";
 import {isAuthorized} from "./../../auth/authorization";
 import {DISCORD_SCOPES} from "../../constants";
 
@@ -75,16 +75,21 @@ export const refreshToken = https
         response.send();
         return;
       }
-      const oauth = new OAuth({
+      const oauth = new OAuth();
+      const authRequest = {
         clientId: config().discord.client.id,
         clientSecret: config().discord.client.secret,
         redirectUri: config().discord.redirect.uri,
-      });
-      const accessTokenResponse = oauth.tokenRequest({
         scope: DISCORD_SCOPES,
-        grantType: "refresh_token",
-        refreshToken: request.body.refreshToken,
-      });
+        grantType: "refresh_token" as const,
+        refreshToken: request.body.refreshToken as string,
+      };
+      let accessTokenResponse = {} as TokenRequestResult;
+      try {
+        accessTokenResponse = await oauth.tokenRequest(authRequest);
+      } catch (e) {
+        response = modifyResponse(request, response, 400);
+      }
       response = modifyResponse(request, response, 200);
       response.json({...accessTokenResponse});
       return;

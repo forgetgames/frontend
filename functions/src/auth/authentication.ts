@@ -1,5 +1,7 @@
 import {Request, Response, config} from "firebase-functions";
-import OAuth = require( "discord-oauth2" );
+import OAuth = require("discord-oauth2");
+
+export type TokenRequestResult = OAuth.TokenRequestResult;
 
 /**
  * Modifies headers for different environments

@@ -75,6 +75,13 @@ export const useUserStore = defineStore('user', {
           this.username = response.username
         })
     },
+    async setSessionByRefresh(response: DiscordAuthSuccess) {
+      this.accessToken = response.access_token
+      this.expiresIn = response.expires_in
+      this.refreshToken = response.refresh_token
+      this.scope = response.scope
+      this.tokenType = response.token_type
+    },
     async refresh() {
       refresh(this.refreshToken)
     },
