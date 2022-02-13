@@ -4,6 +4,7 @@
   "scripts": {
     "serve": "vite --port 8080 --open --mode dev",
     "build": "vite-ssg --noEmit && vite build --mode prod",
+    "deploy": "pnpm build && firebase deploy --only hosting",
     "lint": "eslint \"**/*.{vue,ts,js}\"",
     "preview": "vite preview",
     "typecheck": "vue-tsc --noEmit"
