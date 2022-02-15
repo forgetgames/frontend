@@ -13,9 +13,9 @@ loadServers()
 </script>
 <template>
   <h2 class="mb-12">
-    Servers
+    Servers<q-btn flat color="purple" icon="refresh" @click="loadServers()" />
   </h2>
-  <div><q-btn flat color="purple" icon="refresh" @click="loadServers()" /></div>
+
   <div class="server-list">
     <spinner v-if="serversLoading">
       Loading...

@@ -15,12 +15,12 @@ const userStore = useUserStore()
       </span>
       <span class="ml-auto">
         <q-btn
-          v-if="!userStore.id" class="bg-fuchsia-800" @click="userStore.login()"
+          v-if="!userStore.id" flat size="lg" class="bg-fuchsia-800" @click="userStore.login()"
         >
           Login
         </q-btn>
         <q-btn
-          v-if="userStore.id" class="bg-fuchsia-800" @click="userStore.logout()"
+          v-if="userStore.id" flat size="lg" class="bg-fuchsia-800" @click="userStore.logout()"
         >
           Logout
         </q-btn>

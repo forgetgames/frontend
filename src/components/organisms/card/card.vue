@@ -4,10 +4,10 @@ defineProps(['server'])
 </script>
 
 <template>
-  <div class="card">
-    <div class="card-header">
+  <q-card dark>
+    <q-card-section class="grid grid-cols-2">
       <h3>{{ server.name }}</h3>
-      <span class="ml-auto p-1 bg-white rounded-4xl">
+      <span class="ml-auto p-1 bg-white text-black rounded-4xl">
         <span class="px-2 border-r-1 border-black"><carbon-user-filled class="align-text-top" />{{ server.playerCount }}</span>
         <span class="mx-2 rounded-xl text-lime-800">
           <carbon-checkmark-outline v-if="server.status === Status.ONLINE" class="align-text-top" />
@@ -20,31 +20,32 @@ defineProps(['server'])
 
         </span>
       </span>
-    </div>
-    <div class="card-body">
+    </q-card-section>
+    <q-card-section>
       <p>{{ server.description }}</p>
-    </div>
-    <div class="card-actions">
-      <button v-if="server.status === Status.ONLINE">
+    </q-card-section>
+    <q-card-actions class="text-white">
+      <q-btn v-if="server.status === Status.ONLINE" flat size="lg" class="bg-fuchsia-800">
         Restart
-      </button>
-      <button v-if="server.status === Status.OFFLINE">
+      </q-btn>
+      <q-btn v-if="server.status === Status.OFFLINE" flat size="lg" class="bg-fuchsia-800">
         Start
-      </button>
-      <button v-if="server.status === Status.ONLINE">
+      </q-btn>
+      <q-btn v-if="server.status === Status.ONLINE" flat size="lg" class="bg-fuchsia-800">
         Stop
-      </button>
-      <button v-if="server.status === Status.OFFLINE">
+      </q-btn>
+      <q-btn v-if="server.status === Status.OFFLINE" flat size="lg" class="bg-fuchsia-800">
         Archive
-      </button>
-      <button v-if="server.status === Status.OFFLINE">
+      </q-btn>
+      <q-btn v-if="server.status === Status.OFFLINE" flat size="lg" class="bg-fuchsia-800">
         Migrate
-      </button>
-      <button
+      </q-btn>
+      <q-btn
         v-if="!['restarting', 'migrating', 'deleted'].includes(server.status)"
+        flat size="lg" class="bg-fuchsia-800"
       >
         Swap
-      </button>
-    </div>
-  </div>
+      </q-btn>
+    </q-card-actions>
+  </q-card>
 </template>
