@@ -12,10 +12,11 @@
   "dependencies": {
     "@iconify-json/carbon": "^1.0.14",
     "@quasar/extras": "^1.12.4",
+    "@vue/compiler-sfc": "^3.2.31",
     "@vueuse/core": "^7.5.4",
     "@vueuse/head": "^0.7.5",
     "pinia": "^2.0.9",
-    "sass": "^1.49.0",
+    "sass": "1.32.12",
     "vue": "^3.2.28",
     "vue-demi": "^0.12.1",
     "vue-router": "^4.0.12"
