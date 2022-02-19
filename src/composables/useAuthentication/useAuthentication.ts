@@ -42,9 +42,6 @@ export default () => {
           userStore.setRedirect(route.query.redirect)
         userStore.login()
       }
-      else if (userStore.refreshToken) {
-        userStore.refresh()
-      }
     }
   })
 

@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { useRouter } from 'vue-router'
-import { login, logout, processCode, refresh } from '~/services/fgapi/index'
+import { login, logout, processCode } from '~/services/fgapi/index'
 import type { Auth, DiscordAuthSuccess } from '~/types'
 
 export const useUserStore = defineStore('user', {
@@ -81,9 +81,6 @@ export const useUserStore = defineStore('user', {
       this.refreshToken = response.refresh_token
       this.scope = response.scope
       this.tokenType = response.token_type
-    },
-    async refresh() {
-      refresh(this.refreshToken)
     },
     getAvatarUrl() {
       return `https://cdn.discordapp.com/avatars/${this.id}/${this.avatar}.png`
