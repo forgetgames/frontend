@@ -10,7 +10,7 @@ const inError = computed(() => userStore.state === 'error')
         <q-bar class="bg-red-800 p-8">
           <h3>Unauthorized</h3>
           <q-space />
-          <q-btn v-close-popup icon="close" flat round dense class="hover:bg-red-600" @click="userStore.setState('')" />
+          <q-btn v-close-popup icon="close" push round dense class="hover:bg-red-600" @click="userStore.setState('')" />
         </q-bar>
 
         <q-card-section class="q-pt-none bg-red-600 p-8">

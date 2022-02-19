@@ -13,7 +13,16 @@ loadServers()
 </script>
 <template>
   <h2 class="mb-12">
-    Servers<q-btn flat color="purple" icon="refresh" @click="loadServers()" />
+    Servers
+    <q-btn push color="purple" icon="refresh" class="ml-4" @click="loadServers()">
+      <q-tooltip
+        transition-show="rotate"
+        transition-hide="rotate"
+        self="top middle" class="bg-gradient text-white text-lg"
+      >
+        Refresh Server List
+      </q-tooltip>
+    </q-btn>
   </h2>
 
   <div class="server-list">

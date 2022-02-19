@@ -21,7 +21,7 @@ useHead({
     </q-card-section>
     <q-card-section>
       <q-card-actions class="p-0">
-        <q-btn flat size="lg" to="/servers" class="bg-fuchsia-800 mt-8">
+        <q-btn push size="lg" to="/servers" class="bg-fuchsia-800 mt-8">
           Servers Dashboard
         </q-btn>
       </q-card-actions>
@@ -38,7 +38,7 @@ useHead({
     </q-card-section>
     <q-card-section>
       <q-card-actions align="right" class="p-0">
-        <q-btn flat size="lg" to="/communities" class="bg-fuchsia-800 mt-8">
+        <q-btn push size="lg" to="/communities" class="bg-fuchsia-800 mt-8">
           Join a Community
         </q-btn>
       </q-card-actions>
