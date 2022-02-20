@@ -1,4 +1,9 @@
-# Vue 3 + Typescript + Vite
+# Forget Games Frontend
+
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Project Backers](https://opencollective.com/forget-games/tiers/badge.svg)](https://opencollective.com/forget-games)
+
+## Vue 3 + Typescript + Vite
 
 This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 

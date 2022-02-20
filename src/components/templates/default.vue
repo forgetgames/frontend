@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { useUserStore } from '~/stores/user'
 const userStore = useUserStore()
+
 </script>
+
 <template>
-  <div class="grid grid-rows-[64px,auto,64px] w-3/4 mx-auto p-8 default-template">
+  <div class="grid grid-rows-[64px,auto,64px] lg:w-3/4 mx-auto py-8 px-8 lg:px-0 default-template">
     <nav class="grid grid-cols-[auto,auto]">
       <span class="flex flex-row">
-        <img src="/logo.png" class="rounded-full h-20">
-        <h1>
+        <router-link to="/">
+          <img src="/logo.png" class="rounded-full h-20">
+        </router-link>
+        <h1 class="header-hide">
           <router-link to="/">
             Forget Games
           </router-link>
@@ -38,7 +42,7 @@ const userStore = useUserStore()
     <footer class="grid grid-cols-[3fr,1fr]">
       <hr class="col-start-1 col-end-3">
       <p class="col-start-1">
-        © Copyright {{ new Date().getFullYear() }} by nobody. All rights reversed.
+        © Copyright {{ new Date().getFullYear() }} Forget Games. All rights reserved.
       </p>
       <a href="https://github.com/forgetgames" target="_blank" class="text-right">
         <carbon-logo-github />
@@ -50,5 +54,12 @@ const userStore = useUserStore()
 <style>
 .default-template {
   min-height: 100vh;
+}
+.header-hide {
+  display: block;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 }
 </style>
