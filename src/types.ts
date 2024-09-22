@@ -1,6 +1,11 @@
 import type { ViteSSGContext } from 'vite-ssg'
 
-export type UserModule = (ctx: ViteSSGContext) => void
+
+export type InstallMethod = (ctx: ViteSSGContext) => void
+
+export interface Module {
+  install: InstallMethod
+}
 
 export declare class Auth {
   authUrl: string

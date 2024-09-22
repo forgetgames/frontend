@@ -50,7 +50,7 @@ export default defineConfig({
         }
       },
     }),
-    Layouts({ layoutsDir: 'src/components/templates' }),
+    Layouts({ layoutsDirs: 'src/components/templates' }),
     WindiCSS(),
     AutoImport({
       imports: [

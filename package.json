@@ -1,6 +1,9 @@
 {
   "name": "forget-games",
   "version": "0.0.1",
+  "engines": {
+    "node": "22"
+  },
   "scripts": {
     "serve": "vite --port 8080 --open --mode dev",
     "build": "vite-ssg --noEmit && vite build --mode prod",
@@ -10,35 +13,35 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@iconify-json/carbon": "^1.0.14",
-    "@quasar/extras": "^1.12.4",
-    "@vue/compiler-sfc": "^3.2.31",
-    "@vueuse/core": "^7.5.4",
-    "@vueuse/head": "^0.7.5",
-    "pinia": "^2.0.9",
-    "sass": "1.32.12",
-    "vue": "^3.2.28",
-    "vue-demi": "^0.12.1",
-    "vue-router": "^4.0.12"
+    "@iconify-json/carbon": "^1.2.1",
+    "@quasar/extras": "^1.16.12",
+    "@vue/compiler-sfc": "^3.5.7",
+    "@vueuse/core": "^11.1.0",
+    "@vueuse/head": "^2.0.0",
+    "pinia": "^2.2.2",
+    "sass": "1.79.3",
+    "vue": "^3.5.7",
+    "vue-demi": "^0.14.10",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.16.0",
-    "@quasar/vite-plugin": "^1.0.4",
-    "@vitejs/plugin-vue": "^2.1.0",
-    "eslint": "^8.7.0",
-    "postcss": "^8.4.5",
+    "@antfu/eslint-config": "^3.7.1",
+    "@quasar/vite-plugin": "^1.7.0",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "eslint": "^9.11.0",
+    "postcss": "^8.4.47",
     "postcss-windicss": "^1.0.0",
-    "quasar": "^2.4.12",
-    "typescript": "^4.5.5",
-    "unplugin-auto-import": "^0.5.11",
-    "unplugin-icons": "^0.13.0",
-    "unplugin-vue-components": "^0.17.14",
-    "vite": "^2.7.13",
-    "vite-plugin-pages": "^0.20.0",
-    "vite-plugin-pwa": "^0.11.13",
-    "vite-plugin-vue-layouts": "^0.5.0",
-    "vite-plugin-windicss": "^1.6.3",
-    "vite-ssg": "^0.17.6",
-    "vue-tsc": "0.31.1"
+    "quasar": "^2.17.0",
+    "typescript": "^5.6.2",
+    "unplugin-auto-import": "^0.18.3",
+    "unplugin-icons": "^0.19.3",
+    "unplugin-vue-components": "^0.27.4",
+    "vite": "^5.4.7",
+    "vite-plugin-pages": "^0.32.3",
+    "vite-plugin-pwa": "^0.20.5",
+    "vite-plugin-vue-layouts": "^0.11.0",
+    "vite-plugin-windicss": "^1.9.3",
+    "vite-ssg": "^0.23.8",
+    "vue-tsc": "2.1.6"
   }
 }

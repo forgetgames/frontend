@@ -16,7 +16,10 @@ export const processCode = async(code: string) => {
 export const refresh = async(refreshToken: string) => {
   return fetch(`${import.meta.env.VITE_FG_API_URL}api-refresh`, { method: 'POST', body: JSON.stringify({ refreshToken }), headers: { 'Content-Type': 'application/json' } })
 }
-
+interface ActionRequest {
+  id: string
+  action: string
+}
 export class FgApi {
   userStore = useUserStore()
   async apiCall(url: string, config: object): Promise<Response> {
@@ -59,5 +62,21 @@ export class FgApi {
 
   async servers(): Promise<Response> {
     return this.get(`${import.meta.env.VITE_FG_API_URL}api-servers`)
+  }
+
+  async start(id: string): Promise<Response> {
+    return this.post(`${import.meta.env.VITE_FG_API_URL}api-action`, { data: { id, action: 'start' } })
+  }
+
+  async stop(id: string): Promise<Response> {
+    return this.post(`${import.meta.env.VITE_FG_API_URL}api-action`, { data: { id, action: 'stop' } })
+  }
+
+  async restart(id: string): Promise<Response> {
+    return this.post(`${import.meta.env.VITE_FG_API_URL}api-action`, { data: { id, action: 'restart' } })
+  }
+
+  async update(id: string): Promise<Response> {
+    return this.post(`${import.meta.env.VITE_FG_API_URL}api-action`, { data: { id, action: 'update' } })
   }
 }

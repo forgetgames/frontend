@@ -1,9 +1,9 @@
 import { createPinia } from 'pinia'
-import type { UserModule } from '~/types'
+import type { InstallMethod } from '~/types'
 
 // Setup Pinia
 // https://pinia.esm.dev/
-export const install: UserModule = ({ isClient, initialState, app }) => {
+export const install: InstallMethod = ({ isClient, initialState, app }) => {
   const pinia = createPinia()
   app.use(pinia)
   // Refer to

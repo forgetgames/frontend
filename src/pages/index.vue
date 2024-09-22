@@ -15,7 +15,7 @@ useHead({
 <template>
   <h2>Homepage</h2>
   <p class="my-12">
-    Control our game servers for select invite-only Discord Communities.
+    Control our game servers from select roles in invite-only Discord Communities.
   </p>
   <q-card dark class="mt-8 bg-gradient border-dark-300 border-dotted border-8">
     <q-card-section>
@@ -46,7 +46,8 @@ useHead({
         <q-btn push size="lg" to="/servers" icon="dashboard_customize" class="bg-fuchsia-800">
           Servers Dashboard
         </q-btn>
-        <q-btn push size="lg" href="https://opencollective.com/forget-games" target="_blank" icon="savings" class="bg-fuchsia-800">
+        <q-btn push size="lg" href="https://opencollective.com/forget-games" target="_blank" icon="savings"
+          class="bg-fuchsia-800">
           Back Costs
         </q-btn>
       </q-card-actions>
@@ -57,7 +58,8 @@ useHead({
       <h3 class="mb-4">
         What is this?
       </h3>
-      <p>This platform offers functionality to manage active game servers for our communities. To view and change the servers, you will require permissions from the following communities on Discord.</p>
+      <p>This platform offers functionality to manage active game servers for our communities. To view and change the
+        servers, you will require permissions from the following communities on Discord.</p>
       <q-list dark bordered separator class="border-dark-300 mt-8">
         <q-item v-ripple>
           <q-item-section class="border-dark-300">

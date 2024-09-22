@@ -6,5 +6,5 @@ const { userStore } = useAuthentication()
 
 <template>
   <router-view />
-  <Error v-if="userStore.state==='error'" />
+  <Error v-if="userStore.state === 'error'" />
 </template>
